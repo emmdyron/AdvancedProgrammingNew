@@ -3,9 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.34916.146
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdvancedProgrammingNew.Domain", "AdvancedProgrammingNew.Domain\AdvancedProgrammingNew.Domain.csproj", "{66C50B2B-A814-4E3F-B887-E8A499826444}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdvancedProgrammingNew.Domain", "AdvancedProgrammingNew.Domain\AdvancedProgrammingNew.Domain.csproj", "{66C50B2B-A814-4E3F-B887-E8A499826444}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdvancedProgrammingNew.DataAccess", "AdvancedProgrammingNew.DataAccess\AdvancedProgrammingNew.DataAccess.csproj", "{907BDDC7-4A9D-493B-A6B0-2E99BB0667E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdvancedProgrammingNew.DataAccess", "AdvancedProgrammingNew.DataAccess\AdvancedProgrammingNew.DataAccess.csproj", "{907BDDC7-4A9D-493B-A6B0-2E99BB0667E8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{66C50B2B-A814-4E3F-B887-E8A499826444} = {66C50B2B-A814-4E3F-B887-E8A499826444}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
