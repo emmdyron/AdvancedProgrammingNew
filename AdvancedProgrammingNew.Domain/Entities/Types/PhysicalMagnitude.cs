@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AdvancedProgrammingNew.Domain.Common;
 
 namespace AdvancedProgrammingNew.Domain.Entities.Types
 {
