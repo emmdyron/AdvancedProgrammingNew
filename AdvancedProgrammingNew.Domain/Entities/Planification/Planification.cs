@@ -24,6 +24,8 @@ namespace AdvancedProgrammingNew.Domain.Entities.Planification
 
         #endregion
 
+        protected Planification() { }
+
         public Planification(string operatorName, Guid id) : base(id)
         {
             OperatorName = operatorName;

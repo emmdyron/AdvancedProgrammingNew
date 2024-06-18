@@ -24,6 +24,8 @@ namespace AdvancedProgrammingNew.Domain.Entities.Equipments
 
         #endregion
 
+        protected Actuator() { }
+
         public Actuator(string code, string manufacturerName, PhysicalMagnitude physicalMagnitude, string codeAuto, Guid id) : base(code, manufacturerName, physicalMagnitude, id)
         {
             IsDigital = false;

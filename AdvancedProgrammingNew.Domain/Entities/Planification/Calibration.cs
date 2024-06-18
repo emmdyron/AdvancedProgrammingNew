@@ -25,6 +25,8 @@ namespace AdvancedProgrammingNew.Domain.Entities.Planification
 
         #endregion
 
+        protected Calibration() { }
+
         public Calibration(string certifier, string operatorName, Guid id) : base(operatorName, id)
         {
             Sensors = new List<Sensor>();

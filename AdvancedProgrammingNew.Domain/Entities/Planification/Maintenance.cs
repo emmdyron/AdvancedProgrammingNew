@@ -23,6 +23,8 @@ namespace AdvancedProgrammingNew.Domain.Entities.Planification
         public MaintenanceTypes MaintenanceType { get; set; }
         #endregion
 
+        protected Maintenance() { }
+
         public Maintenance(string operatorName, Guid id) : base(operatorName, id)
         {
             Actuators = new List<Actuator>();

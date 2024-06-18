@@ -32,6 +32,8 @@ namespace AdvancedProgrammingNew.Domain.Entities.Equipments
 
     #endregion
 
+        protected Equipment() { }
+
     public Equipment(string code, string manufacturerName, PhysicalMagnitude physicalMagnitude, Guid id) : base(id)
     {
         Code = code;
