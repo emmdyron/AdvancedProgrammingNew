@@ -21,10 +21,21 @@ namespace AdvancedProgrammingNew.DataAccess.Contexts
 
         #endregion
 
+        /// <summary>
+        /// Requerido por EntityFrameworkCore
+        /// </summary>
         public ApplicationContext() { }
 
+        /// <summary>
+        /// Inicializa un objeto ApplicationContext
+        /// </summary>
+        /// <param name="connectionString"></param>
         public ApplicationContext(string connectionString) : base(GetOptions(connectionString)) { }
 
+        /// <summary>
+        /// Inicializa un objeto ApplicationContext
+        /// </summary>
+        /// <param name="options"></param>
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options) { }
 
 
