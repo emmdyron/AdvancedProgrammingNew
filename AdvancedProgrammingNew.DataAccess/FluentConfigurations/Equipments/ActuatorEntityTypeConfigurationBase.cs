@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace AdvancedProgrammingNew.DataAccess.FluentConfigurations.Equipments
 {
+    // Configurando la tabla de Actuadores
     public class ActuatorEntityTypeConfigurationBase : IEntityTypeConfiguration<Actuator>
     {
         public void Configure(EntityTypeBuilder<Actuator> builder)

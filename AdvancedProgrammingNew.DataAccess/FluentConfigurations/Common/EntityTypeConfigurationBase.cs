@@ -9,6 +9,8 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace AdvancedProgrammingNew.DataAccess.FluentConfigurations.Common
 {
+
+    // clase base para configurar las tablas
     public abstract class EntityTypeConfigurationBase<T> : IEntityTypeConfiguration<T> where T : Entity
     {
         public virtual void Configure(EntityTypeBuilder<T> builder)

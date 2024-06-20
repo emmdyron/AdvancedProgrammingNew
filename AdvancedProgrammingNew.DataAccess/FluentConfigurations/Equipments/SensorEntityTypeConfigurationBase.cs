@@ -9,6 +9,8 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace AdvancedProgrammingNew.DataAccess.FluentConfigurations.Equipments
 {
+
+    // // Configurando la tabla de sensores
     public class SensorEntityTypeConfigurationBase : IEntityTypeConfiguration<Sensor>
     {
         public void Configure(EntityTypeBuilder<Sensor> builder)
