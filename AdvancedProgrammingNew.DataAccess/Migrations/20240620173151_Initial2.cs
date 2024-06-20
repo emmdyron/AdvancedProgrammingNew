@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace AdvancedProgrammingNew.DataAccess.Migrations
 {
-    public partial class Initial : Migration
+    public partial class Initial2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -14,6 +14,8 @@ namespace AdvancedProgrammingNew.DataAccess.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "TEXT", nullable: false),
+                    Code = table.Column<string>(type: "TEXT", nullable: false),
+                    ManufacturerName = table.Column<string>(type: "TEXT", nullable: false),
                     PhysicalMagnitude_Name = table.Column<string>(type: "TEXT", nullable: false),
                     PhysicalMagnitude_MeasurementUnit = table.Column<string>(type: "TEXT", nullable: false)
                 },
@@ -101,6 +103,7 @@ namespace AdvancedProgrammingNew.DataAccess.Migrations
                 {
                     Id = table.Column<Guid>(type: "TEXT", nullable: false),
                     IsDigital = table.Column<bool>(type: "INTEGER", nullable: false),
+                    CodeAuto = table.Column<string>(type: "TEXT", nullable: false),
                     MaintenanceId = table.Column<Guid>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>

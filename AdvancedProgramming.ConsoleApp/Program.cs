@@ -21,6 +21,11 @@ namespace AdvancedProgrammingNew.ConsoleApp
 {
         static void Main(string[] args)
         {
+
+            if (File.Exists("AdvancedProgrammingDB.sqlite"))
+                File.Delete("AdvancedProgrammingDB.sqlite");
+
+
             // Creando un contexto para interacturar con la base de datos.
             ApplicationContext applicationContext = new ApplicationContext("Data Source = AdvancedProgrammingDB.sqlite");
 
@@ -34,15 +39,29 @@ namespace AdvancedProgrammingNew.ConsoleApp
             // Creando un primer actuador
             EquipmentRepository equipmentRepository = new EquipmentRepository(applicationContext);
 
-            Actuator act1 = new Actuator("Alfa", "AlfaRomeo", new PhysicalMagnitude("Temperature", "Celsius"), "2387", Guid.NewGuid());
+            Actuator act1 = new Actuator("Alfa", "AlfaRomeo", new PhysicalMagnitude("Temperature", "Celsius"), 
+                                         "2387", Guid.NewGuid());
+
+            Sensor sens1 = new Sensor("Beta", "Mercedes", new PhysicalMagnitude("Pressure", "Bar"),
+                                      "Pressure measuring", Protocol.BACNet, Guid.NewGuid());
 
             // Anadiendo al repositorio el actuador
             equipmentRepository.AddEquipment(act1);
+            equipmentRepository.AddEquipment(sens1);
 
             // Salvando los cambios de la BD 
             applicationContext.SaveChanges();
 
-            // Prueba para ver si pincha la consola
+
+            act1.ManufacturerName = "Siemens";
+
+            applicationContext.Equipments.Update(act1);
+            applicationContext.SaveChanges();
+
+            applicationContext.Equipments.Remove(sens1);
+            applicationContext.SaveChanges();
+
+            // Prueba para ver si funciona la consola
             Console.WriteLine($"El equipamiento es de la marca {act1.ManufacturerName}");
         }
 

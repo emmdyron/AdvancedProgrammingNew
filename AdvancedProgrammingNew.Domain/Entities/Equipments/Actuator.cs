@@ -19,7 +19,7 @@ namespace AdvancedProgrammingNew.Domain.Entities.Equipments
         /// Codigo del automata que lo controla
         /// </summary>
 
-        public string CodeAuto { get; }
+        public string CodeAuto { get; set; }
 
 
         #endregion

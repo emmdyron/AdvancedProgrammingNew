@@ -16,13 +16,13 @@ namespace AdvancedProgrammingNew.Domain.Entities.Equipments
     /// Codigo alfanumerico de la unidad a la que pertenecen
     /// </summary>
 
-    public string Code { get; }
+    public string Code { get; set;  }
 
     /// <summary>
     /// Nombre del fabricante
     /// </summary>
 
-    public string ManufacturerName { get; }
+    public string ManufacturerName { get; set; }
 
     /// <summary>
     /// Magnitud fisica
