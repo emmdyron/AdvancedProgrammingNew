@@ -18,9 +18,5 @@
   <ItemGroup>
     <ProjectReference Include="..\AdvancedProgrammingNew.Domain\AdvancedProgrammingNew.Domain.csproj" />
   </ItemGroup>
-	
-  <ItemGroup>
-    <Folder Include="FluentConfigurations\Equipament\" />
-  </ItemGroup>
 
 </Project>
