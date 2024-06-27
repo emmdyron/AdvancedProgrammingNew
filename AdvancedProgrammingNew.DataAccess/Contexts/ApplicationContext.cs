@@ -20,10 +20,7 @@ namespace AdvancedProgrammingNew.DataAccess.Contexts
         public DbSet<Equipment> Equipments { get; set; }
 
         // Tabla de Mantenimientos
-        public DbSet<Maintenance> Maintenances { get; set; }
-
-        //Tabla de calibraciones
-        public DbSet<Calibration> Calibrations { get; set; }
+        public DbSet<Planification> Planifications { get; set; }
 
         #endregion
 
