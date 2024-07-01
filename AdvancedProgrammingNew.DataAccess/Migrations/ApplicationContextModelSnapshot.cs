@@ -23,6 +23,14 @@ namespace AdvancedProgrammingNew.DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ManufacturerName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.HasKey("Id");
 
                     b.ToTable("Equipments", (string)null);
@@ -49,6 +57,10 @@ namespace AdvancedProgrammingNew.DataAccess.Migrations
             modelBuilder.Entity("AdvancedProgrammingNew.Domain.Entities.Equipments.Actuator", b =>
                 {
                     b.HasBaseType("AdvancedProgrammingNew.Domain.Entities.Equipments.Equipment");
+
+                    b.Property<string>("CodeAuto")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.Property<bool>("IsDigital")
                         .HasColumnType("INTEGER");

@@ -11,20 +11,21 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AdvancedProgrammingNew.DataAccess.Contexts
 {
+    // define la estructura de la BD de la aplicacion
     public class ApplicationContext : DbContext
     {
         #region Tables
 
+        // Tabla de Equipamientos
         public DbSet<Equipment> Equipments { get; set; }
 
-        public DbSet<Maintenance> Maintenances { get; set; }
-
-        public DbSet<Calibration> Calibrations { get; set; }
+        // Tabla de Mantenimientos
+        public DbSet<Planification> Planifications { get; set; }
 
         #endregion
 
         /// <summary>
-        /// Requerido por EntityFrameworkCore
+        /// Requerido por EntityFrameworkCore para migraciones
         /// </summary>
         public ApplicationContext() { }
 
@@ -40,13 +41,14 @@ namespace AdvancedProgrammingNew.DataAccess.Contexts
         /// <param name="options"></param>
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options) { }
 
-
+        // Permite cnfigurar detalles importantes
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
             optionsBuilder.UseSqlite();
         }
 
+        //Establecemos el tipo de dato de la tabla 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

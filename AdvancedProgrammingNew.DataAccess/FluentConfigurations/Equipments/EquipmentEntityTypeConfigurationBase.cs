@@ -13,6 +13,7 @@ namespace AdvancedProgrammingNew.DataAccess.FluentConfigurations.Equipments
 {
     public class EquipmentEntityTypeConfigurationBase : EntityTypeConfigurationBase<Equipment>
     {
+        // Configurando la tabla de Equipamientos
         public override void Configure(EntityTypeBuilder<Equipment> builder)
         {
             builder.ToTable("Equipments");

@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AdvancedProgrammingNew.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20240618060445_Initial")]
-    partial class Initial
+    [Migration("20240620173151_Initial2")]
+    partial class Initial2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,6 +23,14 @@ namespace AdvancedProgrammingNew.DataAccess.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ManufacturerName")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -51,6 +59,10 @@ namespace AdvancedProgrammingNew.DataAccess.Migrations
             modelBuilder.Entity("AdvancedProgrammingNew.Domain.Entities.Equipments.Actuator", b =>
                 {
                     b.HasBaseType("AdvancedProgrammingNew.Domain.Entities.Equipments.Equipment");
+
+                    b.Property<string>("CodeAuto")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.Property<bool>("IsDigital")
                         .HasColumnType("INTEGER");
