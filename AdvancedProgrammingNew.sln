@@ -10,7 +10,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdvancedProgrammingNew.Data
 		{66C50B2B-A814-4E3F-B887-E8A499826444} = {66C50B2B-A814-4E3F-B887-E8A499826444}
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdvancedProgramming.ConsoleApp", "AdvancedProgramming.ConsoleApp\AdvancedProgramming.ConsoleApp.csproj", "{5C40721B-0345-41E6-BBB1-E3C7B2E56807}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdvancedProgrammingNew.ConsoleApp", "AdvancedProgramming.ConsoleApp\AdvancedProgrammingNew.ConsoleApp.csproj", "{5C40721B-0345-41E6-BBB1-E3C7B2E56807}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdvancedProgrammingNew.DataAccess.Tests", "ProgrammingAdvancedNew.DataAccess.Tests\AdvancedProgrammingNew.DataAccess.Tests.csproj", "{CA1A1803-DA45-4655-AFBE-81FA7192B9D9}"
 EndProject
