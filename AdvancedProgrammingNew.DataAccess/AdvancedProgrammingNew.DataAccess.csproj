@@ -18,6 +18,7 @@
 	
   <ItemGroup>
     <ProjectReference Include="..\AdvancedProgrammingNew.Domain\AdvancedProgrammingNew.Domain.csproj" />
+	<ProjectReference Include="..\AdvancedProgrammingNew.Contracts\AdvancedProgrammingNew.Contracts.csproj" />
   </ItemGroup>
 	
 

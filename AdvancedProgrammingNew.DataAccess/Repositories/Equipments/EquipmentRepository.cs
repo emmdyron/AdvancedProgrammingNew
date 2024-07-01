@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 using AdvancedProgrammingNew.DataAccess.Contexts;
 using AdvancedProgrammingNew.DataAccess.Repositories.Common;
 using AdvancedProgrammingNew.Domain.Entities.Equipments;
+using AdvancedProgrammingNew.Contracts.Equipments;
 
 namespace AdvancedProgrammingNew.DataAccess.Repositories.Equipments
 {
-    public class EquipmentRepository : RepositoryBase
+    public class EquipmentRepository : RepositoryBase, IEquipmentRepository
     {
 
         public EquipmentRepository(ApplicationContext context) : base(context)
