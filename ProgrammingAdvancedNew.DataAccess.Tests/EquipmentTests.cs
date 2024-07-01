@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AdvancedProgrammingNew.Contracts.Equipment;
+using AdvancedProgrammingNew.Contracts.Equipments;
 
 namespace AdvancedProgrammingNew.DataAccess.Tests
 {
