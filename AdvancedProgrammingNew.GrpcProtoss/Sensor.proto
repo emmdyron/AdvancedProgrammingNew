@@ -1,0 +1,46 @@
+?syntax = "proto3";    // version del protobuffer
+
+option csharp_namespace = "AdvancedProgrammingNew.GrpcProtos"; // namespace
+
+package GrpcProtos;   // permite agrupar en paquetes
+
+import "google/protobuf/wrappers.proto";  // librerias
+import "google/protobuf/empty.proto";
+import "google/protobuf/struct.proto";
+import "common.proto";
+
+service Sensor {      // definiendo el servicio sensor
+  
+  rpc CreateSensor (CreateSensorRequest) returns SensorDTO);
+  rpc GetSensor (GetRequest) returns (NullableSensorDTO);
+  rpc GetAlSensor (google.protobuf.Empty) returns (Sensor);
+  rpc UpdateSensor(SensorDTO) returns (google.protobuf.Empty);
+  rpc DeleteSensor(DeleteRequest) returns (google.protobuf.Empty);
+}
+
+message SensorDTO{   // definiendo los mensajes que se utilizan en el servicio
+	string code = 1;
+	string manufacturerName = 2;
+	PhysicalMagnitude physicalMagnitude = 3;
+	string function = 4;
+	Protocol protocol = 5;
+	 Guid id = 6;
+}
+
+message Sensor{ 
+	repeated SensorDTO items = 1;                // definiendo una lista de sensores
+
+message NullableSensorDTO{                   // para valores nulos 
+	oneof kind{
+		google.protobuf.NullValue null = 1;
+		SensorDTO sensor = 2;
+	}
+}
+
+message CreateActuatorRequest{      // asociado a la creacion del actuador 
+	string code = 1;
+	string manufacturerName = 2;
+	PhysicalMagnitude physicalMagnitude =  3;
+	string function = 4;
+	Protocol protocol = 5;
+}

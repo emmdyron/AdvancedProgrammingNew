@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option csharp_namespace = "AdvancedProgrammingNew.GrpcProtos";
+
+package GrpcProtos;
+
+message GetRequest{
+	string id = 1;
+}
+
+message DeleteRequest{
+	string id = 1;
+}
+
+enum Protocol{
+	Modbus = 0;
+    OPCUA = 1;
+    BACNet = 2;
+}

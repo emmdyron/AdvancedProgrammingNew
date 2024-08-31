@@ -16,6 +16,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdvancedProgrammingNew.Cont
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdvancedProgrammingNew.DataAccess.Tests", "ProgrammingAdvancedNew.DataAccess.Tests\AdvancedProgrammingNew.DataAccess.Tests.csproj", "{CA1A1803-DA45-4655-AFBE-81FA7192B9D9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrpcService", "AdvancedProgrammingNew.GrpcProtos\GrpcService.csproj", "{9862FF57-D724-4B02-9BE6-986D9F2DAD3D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdvancedProgrammingNew.GrpcProtoss", "AdvancedProgrammingNew.GrpcProtoss\AdvancedProgrammingNew.GrpcProtoss.csproj", "{6695DC18-E441-476F-84DC-72CB06D9DF7D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +46,14 @@ Global
 		{CA1A1803-DA45-4655-AFBE-81FA7192B9D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA1A1803-DA45-4655-AFBE-81FA7192B9D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA1A1803-DA45-4655-AFBE-81FA7192B9D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9862FF57-D724-4B02-9BE6-986D9F2DAD3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9862FF57-D724-4B02-9BE6-986D9F2DAD3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9862FF57-D724-4B02-9BE6-986D9F2DAD3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9862FF57-D724-4B02-9BE6-986D9F2DAD3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6695DC18-E441-476F-84DC-72CB06D9DF7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6695DC18-E441-476F-84DC-72CB06D9DF7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6695DC18-E441-476F-84DC-72CB06D9DF7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6695DC18-E441-476F-84DC-72CB06D9DF7D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
