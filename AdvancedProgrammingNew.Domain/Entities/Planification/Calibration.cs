@@ -21,7 +21,7 @@ namespace AdvancedProgrammingNew.Domain.Entities.Planification
         /// <summary>
         /// Entidad certificadora de la calibracion
         /// </summary>
-        public string Certifier { get; }
+        public string Certifier { get; set; }
 
         #endregion
 

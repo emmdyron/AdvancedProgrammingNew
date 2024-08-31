@@ -17,6 +17,7 @@ namespace AdvancedProgrammingNew.Contracts.Equipments
 
         public T? GetEquipmentById<T>(Guid id) where T : Equipment;
 
+        public IEnumerable<T> GetAllEquipments<T>() where T : Equipment;
 
         public void UpdateEquipment(Equipment equipment);
     }

@@ -33,6 +33,11 @@ namespace AdvancedProgrammingNew.DataAccess.Repositories.Equipments
             return _context.Set<T>().FirstOrDefault(e => e.Id == id);
         }
 
+        public IEnumerable<T> GetAllEquipments<T>() where T : Equipment
+        {
+            return _context.Set<T>().ToList();
+        }
+
         public void UpdateEquipment(Equipment equipment)
         { 
             _context.Equipments.Update(equipment);

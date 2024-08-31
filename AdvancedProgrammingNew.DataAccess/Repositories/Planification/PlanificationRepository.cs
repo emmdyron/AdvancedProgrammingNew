@@ -23,17 +23,22 @@ namespace AdvancedProgrammingNew.DataAccess.Repositories.Planifications
             _context.Planifications.Add(planification);
         }
 
-        public void DeleteEquipment(Planification planification)
+        public void DeletePlanification(Planification planification)
         {
             _context.Planifications.Remove(planification);
         }
 
-        public T? GetEquipmentById<T>(Guid id) where T : Planification
+        public T? GetPlanificationById<T>(Guid id) where T : Planification
         {
             return _context.Set<T>().FirstOrDefault(e => e.Id == id);
         }
 
-        public void UpdateEquipment(Planification planification)
+        public IEnumerable<T> GetAllPlanifications<T>() where T : Planification
+        {
+            return _context.Set<T>().ToList();
+        }
+
+        public void UpdatePlanification(Planification planification)
         {
             _context.Planifications.Update(planification);
         }

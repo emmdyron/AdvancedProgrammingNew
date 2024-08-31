@@ -12,12 +12,13 @@ namespace AdvancedProgrammingNew.Contracts.Planifications
         public void AddPlanification(Planification planification);
 
 
-        public void DeleteEquipment(Planification planification);
+        public void DeletePlanification(Planification planification);
 
 
-        public T? GetEquipmentById<T>(Guid id) where T : Planification;
+        public T? GetPlanificationById<T>(Guid id) where T : Planification;
 
+        public IEnumerable<T> GetAllPlanifications<T>() where T : Planification; 
 
-        public void UpdateEquipment(Planification planification);
+        public void UpdatePlanification(Planification planification);
     }
 }
