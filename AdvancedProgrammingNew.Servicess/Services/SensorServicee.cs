@@ -1,18 +1,19 @@
 ﻿using AdvancedProgrammingNew.DataAccess.FluentConfigurations.Equipments;
-using AdvancedProgrammingNew.Domain.Entities.Equipments;
+using AdvancedProgrammingNew.Domain.Entities.Types;
 using AdvancedProgrammingNew.Protos;
 using Google.Protobuf.WellKnownTypes;
 using Grpc.Core;
 using AutoMapper;
+using MediatR;
 
 namespace AdvancedProgrammingNew.Servicess.Services
 {
-    public class SensorServicee : Sensor.SensorBase
+    public class SensorServices : Sensor.SensorBase
     {
         private readonly IMediator _mediator;
         private readonly IMapper _mapper;
 
-        public SensorServicee(
+        public SensorServices(
             IMediator mediator,
             IMapper mapper)
         {

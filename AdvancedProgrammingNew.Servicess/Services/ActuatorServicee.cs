@@ -1,28 +1,34 @@
 ﻿using AdvancedProgrammingNew.DataAccess.FluentConfigurations.Equipments;
-using AdvancedProgrammingNew.Domain.Entities.Equipments;
+using AdvancedProgrammingNew.Domain.Entities.Types;
 using AdvancedProgrammingNew.Protos;
 using Google.Protobuf.WellKnownTypes;
 using Grpc.Core;
 using AutoMapper;
+using MediatR;
+using AdvancedProgrammingNew.Application.Equipment.Commands.CreateActuator;
 
 namespace AdvancedProgrammingNew.Servicess.Services
 {
-    public class ActuatorServicee : Actuator.ActuatorBase
+    public class ActuatorServices : Actuator.ActuatorBase
     {
 
         private readonly IMediator _mediator;
         private readonly IMapper _mapper;
 
-        public ActuatorServicee(
+        public ActuatorServices(
             IMediator mediator,
             IMapper mapper)
         {
             _mediator = mediator;
             _mapper = mapper;
         }
+
         public override Task<ActuatorDTO> CreateActuator(CreateActuatorRequest request, ServerCallContext context)
         {
-            return base.CreateActuator(request, context);
+            var command = new CreateActuatorCommand(
+                request.Code,
+                request.ManufacturerName,
+                new Domain.Entities.Types.PhysicalMagnitude())
         }
 
         public override Task<Empty> DeleteActuator(DeleteRequest request, ServerCallContext context)
