@@ -1,0 +1,47 @@
+
+syntax = "proto3";    // version del protobuffer
+
+option csharp_namespace = "AdvancedProgrammingNew.Protos"; // namespace
+
+package Protos;   // permite agrupar en paquetes
+
+import "google/protobuf/wrappers.proto";  // librerias
+import "google/protobuf/empty.proto";
+import "google/protobuf/struct.proto";
+import "common.proto";
+
+service Actuator {      // definiendo el servicio actuadores
+  
+  rpc CreateActuator (CreateActuatorRequest) returns (ActuatorDTO);
+  rpc GetActuator (GetRequest) returns (NullableActuatorDTO);
+  rpc GetAllActuator (google.protobuf.Empty) returns (Actuators);
+  rpc UpdateActuator(ActuatorDTO) returns (google.protobuf.Empty);
+  rpc DeleteActuator(DeleteRequest) returns (google.protobuf.Empty);
+}
+
+message ActuatorDTO{   // definiendo los mensajes que se utilizan en el servicio
+	string code = 1;
+	string manufacturerName = 2;
+	PhysicalMagnitude physicalMagnitude = 3;
+	string codeAuto = 4;
+	string id = 5;
+	bool IsDigital = 6;
+}
+
+message Actuators{ 
+	repeated ActuatorDTO items = 1;                // definiendo una lista de actuadores
+}
+
+message NullableActuatorDTO{                   // para valores nulos 
+	oneof kind{
+		google.protobuf.NullValue null = 1;
+		ActuatorDTO actuator = 2;
+	}
+}
+
+message CreateActuatorRequest{      // asociado a la creacion del actuador 
+	string code = 1;
+	string manufacturerName = 2;
+	PhysicalMagnitude physicalMagnitude =  3;
+	string codeAuto = 4;
+}

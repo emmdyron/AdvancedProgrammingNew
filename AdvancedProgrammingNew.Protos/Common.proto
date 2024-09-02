@@ -1,0 +1,25 @@
+
+syntax = "proto3";
+
+option csharp_namespace = "AdvancedProgrammingNew.Protos";
+
+package Protos;
+
+message GetRequest{
+	string id = 1;
+}
+
+message DeleteRequest{
+	string id = 1;
+}
+
+enum Protocol{
+	Modbus = 0;
+    OPCUA = 1;
+	BACNet = 2;
+}
+
+message PhysicalMagnitude{
+	string name = 1;
+	string measurementUnit = 2;
+}

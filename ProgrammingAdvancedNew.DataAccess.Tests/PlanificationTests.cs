@@ -84,9 +84,9 @@ namespace AdvancedProgrammingNew.DataAccess.Tests
             Assert.IsNull(loadedCalibration);
         }
 
-        [DataRow(0,"Holanda")]
+        [DataRow(0,"Juan")]
         [TestMethod]
-        public void Can_Update_Calibration(int position, string certifier)
+        public void Can_Update_Calibration(int position, string operatorName)
         {
             //Arrange
             var calibrations = _planificationRepository.GetAllPlanifications<Calibration>().ToList();
@@ -95,14 +95,14 @@ namespace AdvancedProgrammingNew.DataAccess.Tests
             Calibration calibrationToUpdate = calibrations[position];
 
             //Execute
-            calibrationToUpdate.Certifier = certifier;
+            calibrationToUpdate.OperatorName = operatorName;
             _planificationRepository.UpdatePlanification(calibrationToUpdate);
             _unitOfWork.SaveChanges();
 
             //Assert
             Calibration? loadedCalibration = _planificationRepository.GetPlanificationById<Calibration>(calibrationToUpdate.Id);
             Assert.IsNotNull(loadedCalibration);
-            Assert.AreEqual(loadedCalibration.Certifier, certifier);
+            Assert.AreEqual(loadedCalibration.OperatorName, operatorName);
         }
 
     }

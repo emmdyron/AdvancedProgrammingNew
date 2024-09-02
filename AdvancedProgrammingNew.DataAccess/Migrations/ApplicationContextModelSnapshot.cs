@@ -96,6 +96,10 @@ namespace AdvancedProgrammingNew.DataAccess.Migrations
                 {
                     b.HasBaseType("AdvancedProgrammingNew.Domain.Entities.Planification.Planification");
 
+                    b.Property<string>("Certifier")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.ToTable("Calibrations", (string)null);
                 });
 
