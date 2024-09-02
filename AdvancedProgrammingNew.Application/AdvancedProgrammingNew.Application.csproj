@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Equipment\" />
+  </ItemGroup>
+	
+	
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AdvancedProgrammingNew.Contracts\AdvancedProgrammingNew.Contracts.csproj" />
+    <ProjectReference Include="..\AdvancedProgrammingNew.DataAccess\AdvancedProgrammingNew.DataAccess.csproj" />
+    <ProjectReference Include="..\AdvancedProgrammingNew.Domain\AdvancedProgrammingNew.Domain.csproj" />
+    <ProjectReference Include="..\AdvancedProgrammingNew.Protos\AdvancedProgrammingNew.Protos.csproj" />
+  </ItemGroup>
+
+</Project>
+

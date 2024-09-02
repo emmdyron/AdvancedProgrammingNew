@@ -1,0 +1,13 @@
+﻿{
+  "profiles": {
+    "AdvancedProgrammingNew.Servicess": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": false,
+      "applicationUrl": "http://localhost:5254;https://localhost:7047",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

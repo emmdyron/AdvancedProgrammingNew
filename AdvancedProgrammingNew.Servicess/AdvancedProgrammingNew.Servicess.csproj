@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Protobuf Include="Protos\greet.proto" GrpcServices="Server" />
+  </ItemGroup>
+
+	
+	 <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="Grpc.AspNetCore" Version="2.63.0" />
+    <PackageReference Include="MediatR" Version="12.3.0" />
+    
+  </ItemGroup>
+	
+  <ItemGroup>
+    <ProjectReference Include="..\AdvancedProgramming.ConsoleApp\AdvancedProgrammingNew.ConsoleApp.csproj" />
+    <ProjectReference Include="..\AdvancedProgrammingNew.Application\AdvancedProgrammingNew.Application.csproj" />
+    <ProjectReference Include="..\AdvancedProgrammingNew.Contracts\AdvancedProgrammingNew.Contracts.csproj" />
+    <ProjectReference Include="..\AdvancedProgrammingNew.DataAccess\AdvancedProgrammingNew.DataAccess.csproj" />
+    <ProjectReference Include="..\AdvancedProgrammingNew.Domain\AdvancedProgrammingNew.Domain.csproj" />
+    <ProjectReference Include="..\AdvancedProgrammingNew.Protos\AdvancedProgrammingNew.Protos.csproj" />
+    <ProjectReference Include="..\ProgrammingAdvancedNew.DataAccess.Tests\AdvancedProgrammingNew.DataAccess.Tests.csproj" />
+  </ItemGroup>
+
+</Project>
