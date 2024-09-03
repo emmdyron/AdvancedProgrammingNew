@@ -28,7 +28,7 @@ namespace AdvancedProgrammingNew.Servicess.Services
             var command = new CreateActuatorCommand(
                 request.Code,
                 request.ManufacturerName,
-                new Domain.Entities.Types.PhysicalMagnitude())
+                new Domain.Entities.Types.PhysicalMagnitude());
         }
 
         public override Task<Empty> DeleteActuator(DeleteRequest request, ServerCallContext context)
