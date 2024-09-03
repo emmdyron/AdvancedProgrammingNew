@@ -14,7 +14,11 @@ namespace AdvancedProgrammingNew.Servicess.Mappers
                 Protos.SensorDTO>()
                 .ForMember(t => t.Code, o => o.MapFrom(s => s.Code))
                 .ForMember(t => t.ManufacturerName, o => o.MapFrom(s => s.ManufacturerName))
-                .ForMember(t => t.PhysicalMagnitude, o => o.MapFrom(s => (Protos.PhysicalMagnitude)s.PhysicalMagnitude))
+                .ForMember(t => t.PhysicalMagnitude, o => o.MapFrom(s => new Protos.PhysicalMagnitude()
+                {
+                    Name = s.PhysicalMagnitude.Name,
+                    MeasurementUnit = s.PhysicalMagnitude.MeasurementUnit,
+                }))
                 .ForMember(t => t.Function, o => o.MapFrom(s => s.Function))
                 .ForMember(t => t.Protocol, o => o.MapFrom(s => (Protos.Protocol)s.Protocol))
                 .ForMember(t => t.Id, o => o.MapFrom(s => s.Id.ToString()));
@@ -25,7 +29,11 @@ namespace AdvancedProgrammingNew.Servicess.Mappers
                 Domain.Entities.Equipments.Sensor>()
                 .ForMember(t => t.Id, o => o.MapFrom(s => new Guid(s.Id)))
                 .ForMember(t => t.ManufacturerName, o => o.MapFrom(s => s.ManufacturerName))
-                .ForMember(t => t.PhysicalMagnitude, o => o.MapFrom(s => (Domain.Entities.Types.PhysicalMagnitude)s.PhysicalMagnitude))
+                .ForMember(t => t.PhysicalMagnitude, o => o.MapFrom(s => new Protos.PhysicalMagnitude()
+                {
+                    Name = s.PhysicalMagnitude.Name,
+                    MeasurementUnit = s.PhysicalMagnitude.MeasurementUnit,
+                }))
                 .ForMember(t => t.Code, o => o.MapFrom(s => s.Code))
                 .ForMember(t => t.Function, o => o.MapFrom(s => s.Function))
                 .ForMember(t => t.Protocol, o => o.MapFrom(s => (Domain.Entities.Types.Protocol)s.Protocol));

@@ -14,7 +14,7 @@ service Sensor {      // definiendo el servicio sensor
   
   rpc CreateSensor (CreateSensorRequest) returns (SensorDTO);
   rpc GetSensor (GetRequest) returns (NullableSensorDTO);
-  rpc GetAlSensor (google.protobuf.Empty) returns (Sensors);
+  rpc GetAllSensor (google.protobuf.Empty) returns (Sensors);
   rpc UpdateSensor(SensorDTO) returns (google.protobuf.Empty);
   rpc DeleteSensor(DeleteRequest) returns (google.protobuf.Empty);
 }
