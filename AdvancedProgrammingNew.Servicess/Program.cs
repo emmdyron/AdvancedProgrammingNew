@@ -8,7 +8,6 @@ using AdvancedProgrammingNew.DataAccess.Contexts;
 using AdvancedProgrammingNew.DataAccess.Repositories;
 using AdvancedProgrammingNew.DataAccess.Repositories.Equipments;
 using AdvancedProgrammingNew.DataAccess.Repositories.Planifications;
-using System.Reflection.Metadata;
 
 namespace AdvancedProgrammingNew.Servicess
 

@@ -29,13 +29,13 @@ namespace AdvancedProgrammingNew.ConsoleApp
         static void Main(string[] args)
         {
 
-            Console.WriteLine("Press a key");
+            Console.WriteLine("Press a key to connect");
             Console.ReadKey();
 
             Console.WriteLine("Creating channel");
             var httpHandler = new HttpClientHandler();
             httpHandler.ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator;
-            var channel = GrpcChannel.ForAddress("https://localhost:5051", new GrpcChannelOptions { HttpHandler = httpHandler });
+            var channel = GrpcChannel.ForAddress("https://localhost:7047", new GrpcChannelOptions { HttpHandler = httpHandler });
             if (channel is null)
             {
                 Console.WriteLine("Cannot connect");
@@ -71,6 +71,21 @@ namespace AdvancedProgrammingNew.ConsoleApp
                 Console.WriteLine($"Succesful creation.");
             }
 
+            Console.WriteLine($"Press a Key to get the Actuator with Id {createResponse.Id}");
+            Console.ReadKey();
+            var getByIdResponse = client.GetActuator(new GetRequest() { Id = createResponse.Id.ToString() });
+            if (getByIdResponse is null)
+            {
+                Console.WriteLine("Cannot get actuator");
+                channel.Dispose();
+                return;
+            }
+            else
+            {
+                Console.WriteLine($"Succesfully obtained actuator {getByIdResponse.Actuator.Code}");
+            }
+
+
             Console.WriteLine("Press a key for all Actuators");
             Console.ReadKey();
             var getResponse = client.GetAllActuator(new Google.Protobuf.WellKnownTypes.Empty());
@@ -85,7 +100,6 @@ namespace AdvancedProgrammingNew.ConsoleApp
                 Console.WriteLine($"Succesfully obtained {getResponse.Items.Count} Actuators");
             }
 
-            //Rest of actions
 
             Console.WriteLine("Press a key to delete an Actuator");
             Console.ReadKey();

@@ -7,9 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Protobuf Include="Protos\greet.proto" GrpcServices="Server" />
+    <Protobuf Include="Protos\greet.proto" GrpcServices="Both" />
   </ItemGroup>
 
+	<ItemGroup>
+		<None Remove="Actuators.proto" />
+		<None Remove="Sensors.proto" />
+	</ItemGroup>
 	
 	 <ItemGroup>
     <PackageReference Include="AutoMapper" Version="13.0.1" />
