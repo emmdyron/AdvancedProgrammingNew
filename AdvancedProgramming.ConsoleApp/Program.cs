@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations.Schema;
+using Grpc.Net.Client;
 using AdvancedProgrammingNew.DataAccess;
 using AdvancedProgrammingNew.DataAccess.Contexts;
 using AdvancedProgrammingNew.DataAccess.FluentConfigurations.Equipments;
@@ -17,6 +18,7 @@ using AdvancedProgrammingNew.Contracts;
 using AdvancedProgrammingNew.Contracts.Planifications;
 using AdvancedProgrammingNew.DataAccess.Repositories.Planifications;
 using AdvancedProgrammingNew.Domain.Entities.Planification;
+using AdvancedProgrammingNew.Protos;
 
 
 
@@ -27,55 +29,76 @@ namespace AdvancedProgrammingNew.ConsoleApp
         static void Main(string[] args)
         {
 
-            if (File.Exists("AdvancedProgrammingDB.sqlite"))
-                File.Delete("AdvancedProgrammingDB.sqlite");
+            Console.WriteLine("Press a key");
+            Console.ReadKey();
 
-            string connectionString = "Data Source = AdvancedProgrammingDB.sqlite";
+            Console.WriteLine("Creating channel");
+            var httpHandler = new HttpClientHandler();
+            httpHandler.ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator;
+            var channel = GrpcChannel.ForAddress("https://localhost:5051", new GrpcChannelOptions { HttpHandler = httpHandler });
+            if (channel is null)
+            {
+                Console.WriteLine("Cannot connect");
+                channel.Dispose();
+                return;
+            }
 
+            var client = new AdvancedProgrammingNew.Protos.Actuator.ActuatorClient(channel);
 
-            // Creando un contexto para interacturar con la base de datos.
-            ApplicationContext context = new ApplicationContext(connectionString);
+            Console.WriteLine("Press a key to create an Actuator");
+            Console.ReadKey();
 
-            // Verificar si la BD no existe
-            if (!context.Database.CanConnect())
+            var createResponse = client.CreateActuator(new CreateActuatorRequest()
+            {
+                Code = "1234",
+                ManufacturerName = "Yamaha",
+                PhysicalMagnitude = new Protos.PhysicalMagnitude()
+                {
+                    Name = "Temperature",
+                    MeasurementUnit = "Celsius"
+                },
+                CodeAuto = "4321"
+            });
 
-            // Migrando base de datos. Este paso genera la BD con las tablas configuradas en su migracion.
-            context.Database.Migrate();
+            if (createResponse is null)
+            {
+                Console.WriteLine("Cannot create Actuator");
+                channel.Dispose();
+                return;
+            }
+            else
+            {
+                Console.WriteLine($"Succesful creation.");
+            }
 
+            Console.WriteLine("Press a key for all Actuators");
+            Console.ReadKey();
+            var getResponse = client.GetAllActuator(new Google.Protobuf.WellKnownTypes.Empty());
+            if (getResponse.Items is null)
+            {
+                Console.WriteLine("Cannot get");
+                channel.Dispose();
+                return;
+            }
+            else
+            {
+                Console.WriteLine($"Succesfully obtained {getResponse.Items.Count} Actuators");
+            }
 
-            // Creando instancias
-            IUnitOfWork unitOfWork = new UnitOfWork(context);
-            IEquipmentRepository equipmentRepository = new EquipmentRepository(context);
-            IPlanificationRepository planificationRepository = new PlanificationRepository(context);
+            //Rest of actions
 
+            Console.WriteLine("Press a key to delete an Actuator");
+            Console.ReadKey();
 
-            Actuator act1 = new Actuator("Alfa", "AlfaRomeo", new PhysicalMagnitude("Temperature", "Celsius"), 
-                                         "2387", Guid.NewGuid());
+            client.DeleteActuator(new DeleteRequest() { Id = createResponse.Id });
+            var deletedGetResponse = client.GetActuator(new GetRequest() { Id = createResponse.Id });
+            if (deletedGetResponse is null || deletedGetResponse.KindCase != NullableActuatorDTO.KindOneofCase.Actuator)
+            {
+                Console.WriteLine("Succesfully eliminated");
+            }
 
-            Sensor sens1 = new Sensor("Beta", "Mercedes", new PhysicalMagnitude("Pressure", "Bar"),
-                                      "Pressure measuring", Protocol.BACNet, Guid.NewGuid());
+            channel.Dispose();
 
-            Maintenance mant = new Maintenance("Carlos Perez", Guid.NewGuid());
-
-            // Anadiendo al repositorio el actuador
-            equipmentRepository.AddEquipment(act1);
-            equipmentRepository.AddEquipment(sens1);
-            planificationRepository.AddPlanification(mant);
-
-            // Salvando los cambios de la BD 
-            unitOfWork.SaveChanges();
-
-
-            act1.ManufacturerName = "Siemens";
-
-            context.Equipments.Update(act1);
-            context.SaveChanges();
-
-            context.Equipments.Remove(sens1);
-            context.SaveChanges();
-
-            // Prueba para ver si funciona la consola
-            Console.WriteLine($"El equipamiento es de la marca {act1.ManufacturerName}");
         }
 
 

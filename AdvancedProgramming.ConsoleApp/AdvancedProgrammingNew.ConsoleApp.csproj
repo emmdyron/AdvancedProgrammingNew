@@ -7,9 +7,14 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Grpc.AspNetCore" Version="2.63.0" />
+  </ItemGroup>
+
  <ItemGroup>
-	<ProjectReference Include="..\AdvancedProgrammingNew.DataAccess\AdvancedProgrammingNew.DataAccess.csproj" />
+	 <ProjectReference Include="..\AdvancedProgrammingNew.DataAccess\AdvancedProgrammingNew.DataAccess.csproj" />
 	 <ProjectReference Include="..\AdvancedProgrammingNew.Domain\AdvancedProgrammingNew.Domain.csproj" />
+	 <ProjectReference Include="..\AdvancedProgrammingNew.Protos\AdvancedProgrammingNew.Protos.csproj" />
  </ItemGroup> 
 	 
 </Project>
