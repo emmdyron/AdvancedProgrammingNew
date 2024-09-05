@@ -1,0 +1,44 @@
+
+syntax = "proto3";    // version del protobuffer
+
+option csharp_namespace = "AdvancedProgrammingNew.Protos"; // namespace
+
+package Protos;   // permite agrupar en paquetes
+
+import "google/protobuf/wrappers.proto";  // librerias
+import "google/protobuf/empty.proto";
+import "google/protobuf/struct.proto";
+import "common.proto";
+
+service Calibration {
+
+	rpc CreateCalibration (CreateCalibrationRequest) returns (CalibrationDTO);
+	rpc GetCalibration (GetRequest) returns (NullableCalibrationDTO);
+	rpc GetAllCalibration (google.protobuf.Empty) returns (Calibrations);
+	rpc UpdateCalibration (CalibrationDTO) returns (google.protobuf.Empty);
+	rpc DeleteCalibration(DeleteRequest) returns (google.protobuf.Empty);
+}
+
+message CalibrationDTO{
+	string certfier = 1;
+	string operatorName = 2;
+	string maintenanceDate = 3;
+	string id = 4;
+}
+
+message Calibrations{
+	repeated CalibrationDTO items = 1;
+}
+
+message NullableCalibrationDTO{
+	oneof kind{
+		google.protobuf.NullValue null = 1;
+		CalibrationDTO calibration = 2;
+	}
+}
+
+message CreateCalibrationRequest{
+	string certfier = 1;
+	string operatorName = 2;
+	string maintenanceDate = 3;
+}

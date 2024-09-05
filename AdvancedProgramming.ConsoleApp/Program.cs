@@ -71,6 +71,30 @@ namespace AdvancedProgrammingNew.ConsoleApp
                 Console.WriteLine($"Succesful creation.");
             }
 
+            var client2 = new AdvancedProgrammingNew.Protos.Calibration.CalibrationClient(channel);
+
+            Console.WriteLine("Press a key to create a Calibration");
+            Console.ReadKey();
+
+            var createResponse2 = client2.CreateCalibration(new CreateCalibrationRequest()
+            {
+                Certfier = "Toyota",
+                MaintenanceDate = "June 7",
+                OperatorName = "Roberto"
+            });
+
+            if (createResponse2 is null)
+            {
+                Console.WriteLine("Cannot create Calibration");
+                channel.Dispose();
+                return;
+            }
+            else
+            {
+                Console.WriteLine($"Succesful creation.");
+            }
+
+
             Console.WriteLine($"Press a Key to get the Actuator with Id {createResponse.Id}");
             Console.ReadKey();
             var getByIdResponse = client.GetActuator(new GetRequest() { Id = createResponse.Id.ToString() });
