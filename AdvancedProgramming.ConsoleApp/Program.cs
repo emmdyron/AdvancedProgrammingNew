@@ -32,6 +32,7 @@ namespace AdvancedProgrammingNew.ConsoleApp
             Console.WriteLine("Press a key to connect");
             Console.ReadKey();
 
+            // conectando los canales
             Console.WriteLine("Creating channel");
             var httpHandler = new HttpClientHandler();
             httpHandler.ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator;
@@ -43,6 +44,7 @@ namespace AdvancedProgrammingNew.ConsoleApp
                 return;
             }
 
+            // creando un actuador
             var client = new AdvancedProgrammingNew.Protos.Actuator.ActuatorClient(channel);
 
             Console.WriteLine("Press a key to create an Actuator");
@@ -70,7 +72,8 @@ namespace AdvancedProgrammingNew.ConsoleApp
             {
                 Console.WriteLine($"Succesful creation.");
             }
-
+            
+            // creando una calibracion
             var client2 = new AdvancedProgrammingNew.Protos.Calibration.CalibrationClient(channel);
 
             Console.WriteLine("Press a key to create a Calibration");
@@ -94,7 +97,7 @@ namespace AdvancedProgrammingNew.ConsoleApp
                 Console.WriteLine($"Succesful creation.");
             }
 
-
+            // obteniendo un actuador por Id
             Console.WriteLine($"Press a Key to get the Actuator with Id {createResponse.Id}");
             Console.ReadKey();
             var getByIdResponse = client.GetActuator(new GetRequest() { Id = createResponse.Id.ToString() });
@@ -109,7 +112,7 @@ namespace AdvancedProgrammingNew.ConsoleApp
                 Console.WriteLine($"Succesfully obtained actuator {getByIdResponse.Actuator.Code}");
             }
 
-
+            // obteniendo todos los actuadores
             Console.WriteLine("Press a key for all Actuators");
             Console.ReadKey();
             var getResponse = client.GetAllActuator(new Google.Protobuf.WellKnownTypes.Empty());
@@ -124,7 +127,7 @@ namespace AdvancedProgrammingNew.ConsoleApp
                 Console.WriteLine($"Succesfully obtained {getResponse.Items.Count} Actuators");
             }
 
-
+            // eliminando un actuador
             Console.WriteLine("Press a key to delete an Actuator");
             Console.ReadKey();
 
