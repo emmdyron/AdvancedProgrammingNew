@@ -27,7 +27,7 @@ namespace AdvancedProgrammingNew.Domain.Entities.Planification
 
         protected Calibration() { }
 
-        public Calibration(string certifier, string operatorName, Guid id) : base(operatorName, id)
+        public Calibration(string certifier, string operatorName, DateTime maintenanceDate, Guid id) : base(operatorName, maintenanceDate, id)
         {
             Sensors = new List<Sensor>();
             Certifier = certifier;

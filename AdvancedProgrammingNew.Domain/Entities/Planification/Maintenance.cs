@@ -25,7 +25,7 @@ namespace AdvancedProgrammingNew.Domain.Entities.Planification
 
         protected Maintenance() { }
 
-        public Maintenance(string operatorName, Guid id) : base(operatorName, id)
+        public Maintenance(string operatorName, DateTime maintenanceDate, Guid id) : base(operatorName, maintenanceDate, id)
         {
             Actuators = new List<Actuator>();
         }

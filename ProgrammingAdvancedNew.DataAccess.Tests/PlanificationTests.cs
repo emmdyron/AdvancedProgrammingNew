@@ -43,6 +43,7 @@ namespace AdvancedProgrammingNew.DataAccess.Tests
             Calibration calibration = new Calibration(
             certifier,
             operatorName,
+            DateTime.Now,
             id);
 
             //Execute
@@ -103,6 +104,25 @@ namespace AdvancedProgrammingNew.DataAccess.Tests
             Calibration? loadedCalibration = _planificationRepository.GetPlanificationById<Calibration>(calibrationToUpdate.Id);
             Assert.IsNotNull(loadedCalibration);
             Assert.AreEqual(loadedCalibration.OperatorName, operatorName);
+        }
+
+        [DataRow(0)]
+        [TestMethod]
+        public void Can_Delete_Calibration(int position)
+        {
+            //Arrange
+            var calibrations = _planificationRepository.GetAllPlanifications<Calibration>().ToList();
+            Assert.IsNotNull(calibrations);
+            Assert.IsTrue(position < calibrations.Count);
+            Calibration calibrationToDelete = calibrations[position];
+
+            //Execute
+            _planificationRepository.DeletePlanification(calibrationToDelete);
+            _unitOfWork.SaveChanges();
+
+            //Assert
+            Calibration? loadedActuator = _planificationRepository.GetPlanificationById<Calibration>(calibrationToDelete.Id);
+            Assert.IsNull(loadedActuator);
         }
 
     }

@@ -26,9 +26,10 @@ namespace AdvancedProgrammingNew.Domain.Entities.Planification
 
         protected Planification() { }
 
-        public Planification(string operatorName, Guid id) : base(id)
+        public Planification(string operatorName, DateTime maintenanceDate, Guid id) : base(id)
         {
             OperatorName = operatorName;
+            MaintenanceDate = maintenanceDate;
         }
 
     }
